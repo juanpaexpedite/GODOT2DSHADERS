@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shaders/shader_4.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+
+[sub_resource type="ImageTexture" id=1]
+size = Vector2( 256, 128 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 32, 48 )
+
+[node name="Sprite_256x128" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_top = -31.0
+margin_right = 254.0
+margin_bottom = -7.0
+text = "EX4: A * Sin(P * UV.x*2*PI)
+A = amplitude with sin
+P = peaks
+The sprite has an image texture 256x128"
