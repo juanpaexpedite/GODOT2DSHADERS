@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://shaders/shader_10.shader" type="Shader" id=1]
+[ext_resource path="res://scenes/shader_9_scene.gd" type="Script" id=2]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/impact = 0.0
+
+[sub_resource type="ImageTexture" id=1]
+size = Vector2( 256, 128 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 32, 48 )
+script = ExtResource( 2 )
+
+[node name="Sprite_256x128" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_top = -31.0
+margin_right = 254.0
+margin_bottom = -7.0
+text = "EX9: Press I to make an impact
+The shader has a velocity <0 right
+The sprite has an image texture 256x128"
