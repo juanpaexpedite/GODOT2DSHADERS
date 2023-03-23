@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://shaders/shader_16.shader" type="Shader" id=1]
+[ext_resource path="res://scenes/shader_9_scene.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="OpenSimplexNoise" id=3]
+
+[sub_resource type="NoiseTexture" id=4]
+width = 256
+height = 256
+noise = SubResource( 3 )
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0, 0.882813, 1, 1, 0.0313873, 0.255469, 0.472656, 1 )
+
+[sub_resource type="GradientTexture2D" id=6]
+gradient = SubResource( 5 )
+width = 128
+height = 128
+fill_from = Vector2( 0, 0.431771 )
+fill_to = Vector2( 0, 0.998438 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/pixelation_x = 128.0
+shader_param/pixelation_y = 64.0
+shader_param/line_color = Color( 1, 1, 1, 0.8 )
+shader_param/water_color = Color( 0, 0.670588, 1, 0.8 )
+shader_param/impact = 0.0
+shader_param/water_gradient = SubResource( 6 )
+shader_param/noise = SubResource( 4 )
+
+[sub_resource type="ImageTexture" id=1]
+size = Vector2( 256, 128 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 32, 48 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.584314, 0.584314, 0.584314, 1 )
+margin_left = -70.0
+margin_right = 328.0
+margin_bottom = 128.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+
+[node name="Sprite_256x128" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_top = -31.0
+margin_right = 254.0
+margin_bottom = -7.0
+text = "EX15: Press I to make an impact
+Improving the look now with distortion
+The sprite has an image texture 256x128"
