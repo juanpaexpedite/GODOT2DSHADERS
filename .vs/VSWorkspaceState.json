@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\scenes",
+    "\\shaders"
   ],
-  "SelectedNode": "\\D:\\2023\\GODOT2DSHADERS",
+  "SelectedNode": "\\shaders\\shader_16.shader",
   "PreviewInSolutionExplorer": false
 }
